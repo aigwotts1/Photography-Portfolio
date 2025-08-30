@@ -92,7 +92,7 @@ export default function PhotographerPortfolio() {
           <a href="#work">Work</a>
           <a href="#brands">Brands</a>
           <a href="#about">About</a>
-          <a href="#contact" className="px-3 border border-gray-600 rounded">Contact</a>
+          <a href="#contact">Contact</a>
         </nav>
         <div className="md:hidden">
           <button aria-label="open menu" className="p-2 bg-gray-800 rounded">Menu</button>
