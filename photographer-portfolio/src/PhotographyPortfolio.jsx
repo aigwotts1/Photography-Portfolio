@@ -10,8 +10,8 @@ import sirphire from "./assets/brands-logos/sirphire.png";
 import heroDroneShot from "./assets/captures/heroDroneShot.mp4";
 import portfolio1 from "./assets/captures/portfolio1.JPG";
 import barafhibaraf from "./assets/captures/barafhibaraf.jpg"
-import group from "./assets/captures/group.jpg"
-import portfolio from "./assets/captures/portfolio.jpg"
+import group from "./assets/captures/group.JPG"
+import portfolio from "./assets/captures/portfolio.JPG"
 import editor from "./assets/captures/editor.jpg"
 import abhiudaipur from './assets/captures/abhiudaipur.jpg'
 import sanjauli from "./assets/captures/sanjauli.JPG"
