@@ -8,21 +8,16 @@ import portronics from "./assets/brands-logos/portronics.png";
 import redhorns from "./assets/brands-logos/redhorns.png";
 import sirphire from "./assets/brands-logos/sirphire.png";
 import heroDroneShot from "./assets/captures/heroDroneShot.mp4";
-import iziGimbal from "./assets/captures/iziGimbal.jpg";
-import portfolio1 from "./assets/captures/portfolio1.jpg";
+import portfolio1 from "./assets/captures/portfolio1.JPG";
 import barafhibaraf from "./assets/captures/barafhibaraf.jpg"
-import dogs from "./assets/captures/dogs.jpg"
 import group from "./assets/captures/group.jpg"
 import portfolio from "./assets/captures/portfolio.jpg"
 import editor from "./assets/captures/editor.jpg"
 import abhiudaipur from './assets/captures/abhiudaipur.jpg'
-import naturalpahadbaraf from './assets/captures/naturalbarafpahad.jpg'
 import sanjauli from "./assets/captures/sanjauli.JPG"
 import shimla from "./assets/captures/shimla.JPG";
 import stargazing from "./assets/captures/stargazing.jpg";
 import sunset from "./assets/captures/sunset.jpg";
-import barafstudbois from "./assets/captures/barafstudbois.jpg";
-import alto from "./assets/captures/alto.jpg";
 import himachalographer from "./assets/captures/himachalographer.JPG";import Hero from "./components/Hero";
 // top of file (outside the component)
 import redhornsShoot from "./assets/captures/redhorns.mp4";
