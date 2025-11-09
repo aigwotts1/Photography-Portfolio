@@ -2,22 +2,22 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 // Import images
-import adcomLogo from "./assets/brands-logos/adcom.jpeg";
-import izi from "./assets/brands-logos/izi.png";
-import portronics from "./assets/brands-logos/portronics.png";
-import redhorns from "./assets/brands-logos/redhorns.png";
-import sirphire from "./assets/brands-logos/sirphire.png";
+import adcomLogo from "./assets/brands-logos/adcom.webp";
+import izi from "./assets/brands-logos/izi.webp";
+import portronics from "./assets/brands-logos/portronics.webp";
+import redhorns from "./assets/brands-logos/redhorns.webp";
+import sirphire from "./assets/brands-logos/sirphire.webp";
 import heroDroneShot from "./assets/captures/heroDroneShot.mp4";
-import portfolio1 from "./assets/captures/portfolio1.JPG";
-import barafhibaraf from "./assets/captures/barafhibaraf.jpg"
-import group from "./assets/captures/group.JPG"
-import portfolio from "./assets/captures/portfolio.JPG"
-import editor from "./assets/captures/editor.jpg"
-import abhiudaipur from './assets/captures/abhiudaipur.jpg'
-import sanjauli from "./assets/captures/sanjauli.JPG"
-import shimla from "./assets/captures/shimla.JPG";
-import stargazing from "./assets/captures/stargazing.jpg";
-import sunset from "./assets/captures/sunset.jpg";
+import portfolio1 from "./assets/captures/portfolio1.webp";
+import barafhibaraf from "./assets/captures/barafhibaraf.webp";
+import group from "./assets/captures/group.webp";
+import portfolio from "./assets/captures/portfolio.webp";
+import editor from "./assets/captures/editor.webp";
+import abhiudaipur from './assets/captures/abhiudaipur.webp';
+import sanjauli from "./assets/captures/sanjauli.webp";
+import shimla from "./assets/captures/shimla.webp";
+import stargazing from "./assets/captures/stargazing.webp";
+import sunset from "./assets/captures/sunset.webp";
 import himachalographer from "./assets/captures/himachalographer.JPG";import Hero from "./components/Hero";
 // top of file (outside the component)
 import redhornsShoot from "./assets/captures/redhorns.mp4";
