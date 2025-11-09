@@ -25,14 +25,14 @@ export default function Hero({
 
       {/* TOP TITLE */}
       <div className="absolute top-12 left-1/2 -translate-x-1/2 text-center px-6">
-        <h1 className="text-4xl md:text-6xl font-serif leading-tight text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">
+        <h1 className="text-4xl sm:text-xs md:text-6xl font-serif leading-tight text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">
           {title}
         </h1>
       </div>
 
       {/* BOTTOM SECTION */}
       <div className="absolute bottom-16 left-1/2 -translate-x-1/2 text-center px-6">
-        <p className="text-3xl text-white-200 max-w-2xl mx-auto drop-shadow-[0_6px_10px_rgba(0,0,0,1.9)]">
+        <p className="text-lg sm:text-1xl md:text-3xl text-gray-200 max-w-2xl mx-auto drop-shadow-[0_6px_10px_rgba(0,0,0,1.9)]">
           {subtitle}
         </p>
 
