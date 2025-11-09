@@ -205,15 +205,16 @@ function encode(data) {
     <div className="min-h-screen bg-gray-900 text-gray-100 antialiased">
       {/* NAV */}
       <header className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
-{/* Left Section (Responsive) */}
-<div className="flex flex-col sm:flex-row items-center sm:items-baseline gap-1 sm:gap-4 text-center sm:text-left">
-  <div className="font-serif text-xl sm:text-2xl md:text-3xl tracking-tight leading-tight">
+{/* Left Section (Responsive + Centered on Mobile) */}
+<div className="flex flex-col sm:flex-row items-center sm:items-baseline gap-1 sm:gap-4 w-full sm:w-auto text-center sm:text-left justify-center sm:justify-start">
+  <div className="font-serif text-2xl sm:text-3xl md:text-4xl tracking-tight leading-tight">
     Abhinav Vashishth ~
   </div>
-  <div className="text-xs sm:text-sm md:text-base text-gray-400">
+  <div className="text-sm sm:text-base md:text-lg text-gray-400">
     Cinematographer
   </div>
 </div>
+
 
 
   {/* Desktop Navigation (Hidden on Mobile) */}
