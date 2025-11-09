@@ -226,7 +226,7 @@ function encode(data) {
   video={heroDroneShot}
   title="Want A Shoot 🎥 ?"
   subtitle="📸 Commercial & Personal ❤️"
-  primary={{ href: "#contact", label: "Book a shoot" }}
+  primary={{ href: "#contactus", label: "Book a shoot" }}
   secondary={{ href: "#work", label: "View portfolio" }}
   heightClass="h-[72vh]"
   overlayClass="bg-black/30"
@@ -394,7 +394,7 @@ function encode(data) {
 
       {/* CONTACT */}
       <section id="contact" className="py-12 bg-gray-900">
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <div id="contactus" className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           <div>
             <h2 className="text-2xl font-medium">Let’s create something special together📸</h2>
             <p className="mt-2 text-gray-400">Tell me about your project — commercial campaigns, editorial shoots, or a pre-wedding. I’ll respond within 48 hours.</p>
