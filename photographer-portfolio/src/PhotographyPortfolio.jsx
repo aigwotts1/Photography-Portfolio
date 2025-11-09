@@ -237,7 +237,7 @@ function encode(data) {
 <section id="brands" className="py-12">
   <div className="max-w-6xl mx-auto px-6">
     <h2 className="text-2xl font-medium mb-6">
-      Selected brand collaborations
+      ✅ Cinematic Collaborations with Brands 🔥 -
     </h2>
 
     {/* Brand logos marquee */}
@@ -437,8 +437,9 @@ function encode(data) {
     <option value="">Select project type</option>
     <option>Commercial</option>
     <option>Editorial / Fashion</option>
-    <option>Wedding</option>
-    <option>Drone / Aerial</option>
+    <option>Pre-Wedding</option>
+    <option>Drone / Resort</option>
+    <option>Personal</option>
   </select>
   <textarea
     name="message"
@@ -467,11 +468,9 @@ function encode(data) {
             <div className="mt-6 grid grid-cols-2 gap-4">
               <a href="https://www.instagram.com/himachalographer" target="_blank" rel="noreferrer" className="bg-gray-800 p-4 rounded">Instagram</a>
               <a href="https://www.youtube.com/@Himachalographer" target="_blank" rel="noreferrer" className="bg-gray-800 p-4 rounded">YouTube</a>
-              <a href="#" className="bg-gray-800 p-4 rounded">Email</a>
-              <a href="tel:+919459916939" className="bg-gray-800 p-4 rounded">Call / WhatsApp</a>
+              <a href="tel:+919459916939" className="bg-gray-800 p-4 rounded">Call</a>
+              <a href="tel:+919459916939" className="bg-gray-800 p-4 rounded">WhatsApp</a>
             </div>
-
-
           </div>
         </div>
       </section>
@@ -479,7 +478,7 @@ function encode(data) {
       {/* FOOTER */}
       <footer className="border-t border-gray-800 mt-8">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-400">
-          <div>© {new Date().getFullYear()} Abhinav Vashishth — All rights reserved</div>
+          <div>© {new Date().getFullYear()} Abhinav Vashishth @himachalographer — All rights reserved</div>
         </div>
       </footer>
 
