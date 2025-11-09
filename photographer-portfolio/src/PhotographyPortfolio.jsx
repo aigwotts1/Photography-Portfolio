@@ -20,14 +20,15 @@ import stargazing from "./assets/captures/stargazing.webp";
 import sunset from "./assets/captures/sunset.webp";
 import himachalographer from "./assets/captures/himachalographer.JPG";import Hero from "./components/Hero";
 // top of file (outside the component)
-import redhornsShoot from "./assets/captures/redhorns.mp4";
-import sirphireShoot from "./assets/captures/sirphire.mp4";
-import starbucks from "./assets/captures/starbucks.mp4";
+import redhornsShoot from "./assets/captures/redhorns.webm";
+import sirphireShoot from "./assets/captures/sirphire.webm";
+import starbucks from "./assets/captures/starbucks.webm";
+import resort1 from "./assets/captures/resort1.webm";
 
 const WORKS = [
   { id: 1, video: redhornsShoot, category: "Commercial", title: " Product 📸" },
   { id: 2, video: sirphireShoot, category: "Product",      title: "Brand 🔥" },
-  { id: 3, video: starbucks,     category: "Resorts",   title: "Property 🍃" },
+  { id: 3, video: resort1,     category: "Resorts",   title: "Property 🍃" },
 ];
 
 
@@ -110,6 +111,87 @@ export default function PhotographerPortfolio() {
     alert("Failed to send. Check your connection or try again later.");
   }
 }
+
+  // --- VideoCard Component ---
+  function VideoCard({ work }) {
+    const [isPlaying, setIsPlaying] = React.useState(false);
+    const [isMuted, setIsMuted] = React.useState(true);
+    const videoRef = React.useRef(null);
+
+    const togglePlay = () => {
+      if (!videoRef.current) return;
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    };
+
+    const toggleMute = (e) => {
+      e.stopPropagation();
+      if (!videoRef.current) return;
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    };
+
+    return (
+      <div className="relative">
+        {/* Video */}
+        <video
+          ref={videoRef}
+          src={work.video}
+          playsInline
+          preload="auto"
+          loop
+          muted={isMuted}
+          className="w-full aspect-[9/16] object-cover transition-all duration-300"
+        />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80" />
+
+        {/* Play / Pause Button */}
+        <button
+          onClick={togglePlay}
+          className="absolute inset-0 flex items-center justify-center text-white hover:scale-110 transition"
+        >
+          {isPlaying ? (
+            <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" className="w-14 h-14 bg-black/50 rounded-full p-3">
+              <path d="M6 4h4v16H6zm8 0h4v16h-4z" />
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" className="w-14 h-14 bg-black/50 rounded-full p-3">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          )}
+        </button>
+
+        {/* Mute / Unmute Button */}
+        <button
+          onClick={toggleMute}
+          className="absolute bottom-4 right-4 bg-black/60 hover:bg-black/80 rounded-full p-2 text-white transition"
+        >
+          {isMuted ? (
+            <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" className="w-5 h-5">
+              <path d="M12 3v18l-6-6H3V9h3l6-6z" />
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" className="w-5 h-5">
+              <path d="M12 3v18l-6-6H3V9h3l6-6zm6.5 9a4.5 4.5 0 0 0-4.5-4.5v9a4.5 4.5 0 0 0 4.5-4.5z" />
+            </svg>
+          )}
+        </button>
+
+        {/* Caption */}
+        <figcaption className="absolute bottom-4 left-4 text-white text-sm">
+          <div className="font-semibold">{work.title}</div>
+          <div className="text-gray-300 text-xs">{work.category}</div>
+        </figcaption>
+      </div>
+    );
+  }
+
 // utils for Netlify form body
 function encode(data) {
   return new URLSearchParams(data).toString();
@@ -249,35 +331,19 @@ function encode(data) {
     </div>
 
     {/* Video Grid */}
-    <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      {WORKS.filter(w => filter === "All" || w.category === filter).map((w) => (
-        <motion.figure
-          key={w.id}
-          className="rounded-xl overflow-hidden bg-gray-800 flex flex-col transform transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_8px_20px_rgba(0,0,0,0.7)] cursor-pointer relative"
-          whileHover={{ scale: 1.02 }}
-        >
-          <video
-            src={w.video}
-            muted
-            playsInline
-            preload="metadata"
-            className="w-full aspect-[9/16] object-cover transition-all duration-300 hover:opacity-90"
-            onMouseEnter={(e) => e.target.play()}
-            onMouseLeave={(e) => e.target.pause()}
-            onClick={(e) =>
-              e.target.paused ? e.target.play() : e.target.pause()
-            }
-          />
-          {/* Overlay Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 pointer-events-none" />
-          {/* Caption */}
-          <figcaption className="absolute bottom-4 left-4 text-white text-sm">
-            <div className="font-semibold">{w.title}</div>
-            <div className="text-gray-300 text-xs">{w.category}</div>
-          </figcaption>
-        </motion.figure>
-      ))}
-    </div>
+<div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+  {WORKS.filter((w) => filter === "All" || w.category === filter).map((w) => (
+    <motion.figure
+      key={w.id}
+      className="rounded-xl overflow-hidden bg-gray-800 flex flex-col transform transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_8px_20px_rgba(0,0,0,0.7)] relative"
+      whileHover={{ scale: 1.02 }}
+    >
+      <VideoCard work={w} />
+    </motion.figure>
+  ))}
+</div>
+
+    
   </div>
 </section>
 
