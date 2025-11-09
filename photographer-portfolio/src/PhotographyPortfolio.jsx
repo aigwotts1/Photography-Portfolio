@@ -24,11 +24,18 @@ import redhornsShoot from "./assets/captures/redhorns.webm";
 import sirphireShoot from "./assets/captures/sirphire.webm";
 import starbucks from "./assets/captures/starbucks.webm";
 import resort1 from "./assets/captures/resort1.webm";
+import iziPro from "./assets/captures/iziPro.webm";
+import oakwood from "./assets/captures/oakwood.webm";
+import resort2 from "./assets/captures/resort2.webm";
+import phoneCover from "./assets/captures/phoneCover.webm";
 
 const WORKS = [
   { id: 1, video: redhornsShoot, category: "Commercial", title: " Product 📸" },
-  { id: 2, video: sirphireShoot, category: "Product",      title: "Brand 🔥" },
-  { id: 3, video: resort1,     category: "Resorts",   title: "Property 🍃" },
+  { id: 2, video: resort1,     category: "Resorts",   title: "Property 🍃" },
+  { id: 3, video: iziPro,     category: "Commercial",   title: "Product 🎥" },
+  { id: 5, video: phoneCover, category: "Commercial",      title: "Brand 🔥" },
+  { id: 4, video: oakwood,     category: "Resorts",   title: "Property ❤️" },
+  { id: 6, video: resort2,     category: "Resorts",   title: "Property 🍂" }
 ];
 
 
@@ -66,7 +73,7 @@ export default function PhotographerPortfolio() {
     { id: 3, name: "Akshay — SIRPHIRE", quote: "Wonderful Edits and Shoot. Great Work 🔥" },
   ];
 
-  const categories = ["All", "Personal", "Commercial", "Product","Resorts"];
+  const categories = ["All", "Commercial","Resorts"];
 
   const filteredGallery = GALLERY.filter((g) => filter === "All" || g.category === filter);
 
@@ -115,7 +122,7 @@ export default function PhotographerPortfolio() {
   // --- VideoCard Component ---
   function VideoCard({ work }) {
     const [isPlaying, setIsPlaying] = React.useState(false);
-    const [isMuted, setIsMuted] = React.useState(true);
+    const [isMuted, setIsMuted] = React.useState(false);
     const videoRef = React.useRef(null);
 
     const togglePlay = () => {
@@ -332,7 +339,7 @@ function encode(data) {
 
     {/* Video Grid */}
 <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-  {WORKS.filter((w) => filter === "All" || w.category === filter).map((w) => (
+  {WORKS.filter((w) => filter === "All" || w.category === filter).slice(0,3).map((w) => (
     <motion.figure
       key={w.id}
       className="rounded-xl overflow-hidden bg-gray-800 flex flex-col transform transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_8px_20px_rgba(0,0,0,0.7)] relative"
