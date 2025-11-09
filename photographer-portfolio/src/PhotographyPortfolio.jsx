@@ -478,7 +478,7 @@ function encode(data) {
       {/* FOOTER */}
       <footer className="border-t border-gray-800 mt-8">
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between text-sm text-gray-400">
-          <div>© {new Date().getFullYear()} Abhinav Vashishth @himachalographer — All rights reserved</div>
+          <div>© {new Date().getFullYear()} Abhinav Vashishth — All rights reserved</div>
         </div>
       </footer>
 
