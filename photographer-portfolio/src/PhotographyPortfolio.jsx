@@ -85,28 +85,33 @@ export default function PhotographerPortfolio() {
  async function submitForm(e) {
   e.preventDefault();
 
-  const body = new FormData(e.target);
+  const fd = new FormData(e.target);
+  // ensure form-name is present (Netlify uses this to route the submission)
+  if (!fd.get("form-name")) fd.set("form-name", "contact");
 
   try {
     const res = await fetch("/", {
       method: "POST",
-      body,
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(fd).toString(), // <-- URL-encoded, not multipart
     });
 
     if (res.ok) {
       setSent(true);
       setFormState({ name: "", email: "", type: "", message: "" });
-      setTimeout(() => setSent(null), 5000); // reset message after 5s
+      // optionally clear message after a few seconds
+      setTimeout(() => setSent(false), 5000);
     } else {
-      setFormState((prev) => ({ ...prev, error: "Something went wrong. Try again!" }));
       setSent(false);
+      setFormState((p) => ({ ...p, error: "Something went wrong. Try again or whatsapp - 9459916939!" }));
     }
   } catch (err) {
     console.error(err);
-    setFormState((prev) => ({ ...prev, error: "Network error. Please try later." }));
     setSent(false);
+    setFormState((p) => ({ ...p, error: "Network error. Please try later." }));
   }
 }
+
 
 
 
