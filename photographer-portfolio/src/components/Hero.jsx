@@ -40,7 +40,7 @@ export default function Hero({
         <div className="mt-8 flex flex-wrap justify-center gap-6">
           {/* Primary Button (Transparent with white border) */}
           <a
-            href={secondary.href}
+            href={primary.href}
             className="inline-block px-8 py-4 rounded-lg font-semibold text-white border border-gray-500 bg-transparent 
                        hover:bg-black/40 hover:border-gray-400 hover:shadow-[0_4px_12px_rgba(0,0,0,0.4)] 
                        transition-all duration-300 cursor-pointer"
