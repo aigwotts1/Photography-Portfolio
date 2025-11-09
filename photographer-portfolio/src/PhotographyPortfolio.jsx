@@ -85,33 +85,29 @@ export default function PhotographerPortfolio() {
  async function submitForm(e) {
   e.preventDefault();
 
-  const body = new URLSearchParams({
-    "form-name": "contact",
-    "bot-field": "",
-    name: formState.name,
-    email: formState.email,
-    type: formState.type,
-    message: formState.message,
-  });
+  const body = new FormData(e.target);
 
   try {
     const res = await fetch("/", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body,
     });
 
     if (res.ok) {
       setSent(true);
       setFormState({ name: "", email: "", type: "", message: "" });
+      setTimeout(() => setSent(null), 5000); // reset message after 5s
     } else {
-      alert("Something went wrong. Please try again later.");
+      setFormState((prev) => ({ ...prev, error: "Something went wrong. Try again!" }));
+      setSent(false);
     }
   } catch (err) {
     console.error(err);
-    alert("Failed to send. Check your connection or try again later.");
+    setFormState((prev) => ({ ...prev, error: "Network error. Please try later." }));
+    setSent(false);
   }
 }
+
 
 
   // --- VideoCard Component ---
@@ -398,12 +394,12 @@ function encode(data) {
             <h2 className="text-2xl font-medium">Let’s create something special together📸</h2>
             <p className="mt-2 text-gray-400">Tell me about your project — commercial campaigns, editorial shoots, or a pre-wedding. I’ll respond within 48 hours.</p>
 
-            <form
+<form
   name="contact"
   method="POST"
   data-netlify="true"
   netlify-honeypot="bot-field"
-  action="/thank-you.html"
+  onSubmit={submitForm}                 // <-- use handler, no action
   className="mt-6 space-y-4"
 >
   <input type="hidden" name="form-name" value="contact" />
@@ -412,6 +408,8 @@ function encode(data) {
   <input
     name="name"
     placeholder="Your name"
+    value={formState.name}
+    onChange={handleChange}
     required
     className="w-full bg-gray-800 rounded px-4 py-3 text-sm"
   />
@@ -419,11 +417,15 @@ function encode(data) {
     name="email"
     type="email"
     placeholder="Your email"
+    value={formState.email}
+    onChange={handleChange}
     required
     className="w-full bg-gray-800 rounded px-4 py-3 text-sm"
   />
   <select
     name="type"
+    value={formState.type}
+    onChange={handleChange}
     required
     className="w-full bg-gray-800 rounded px-4 py-3 text-sm"
   >
@@ -436,16 +438,19 @@ function encode(data) {
   <textarea
     name="message"
     placeholder="Tell me about your shoot"
+    value={formState.message}
+    onChange={handleChange}
     className="w-full bg-gray-800 rounded px-4 py-3 text-sm h-28"
   />
 
-  <button
-    type="submit"
-    className="bg-amber-500 text-gray-900 px-5 py-3 rounded font-semibold"
-  >
+  <button type="submit" className="bg-amber-500 text-gray-900 px-5 py-3 rounded font-semibold">
     Send request
   </button>
+
+  {sent === true && <p className="text-green-400 text-sm mt-2">✅ Message sent successfully!</p>}
+  {sent === false && formState.error && <p className="text-red-400 text-sm mt-2">❌ {formState.error}</p>}
 </form>
+
 
 
           </div>
