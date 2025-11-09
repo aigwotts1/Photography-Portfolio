@@ -32,9 +32,10 @@ export default function Hero({
 
       {/* BOTTOM SECTION */}
       <div className="absolute bottom-16 left-1/2 -translate-x-1/2 text-center px-6">
-        <p className="text-lg sm:text-1xl md:text-3xl text-gray-200 max-w-2xl mx-auto drop-shadow-[0_6px_10px_rgba(0,0,0,1.9)]">
-          {subtitle}
-        </p>
+<p className="hidden sm:block text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto drop-shadow-[0_6px_10px_rgba(0,0,0,1.9)]">
+  {subtitle}
+</p>
+
 
         <div className="mt-8 flex flex-wrap justify-center gap-6">
           {/* Primary Button (Transparent with white border) */}
