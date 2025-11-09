@@ -28,7 +28,6 @@ import iziPro from "./assets/captures/iziPro.webm";
 import oakwood from "./assets/captures/oakwood.webm";
 import resort2 from "./assets/captures/resort2.webm";
 import phoneCover from "./assets/captures/phoneCover.webm";
-import thankYou from "../public/thank-you.html";
 
 const WORKS = [
   { id: 1, video: redhornsShoot, category: "Commercial", title: " Product 📸" },
@@ -404,7 +403,7 @@ function encode(data) {
   method="POST"
   data-netlify="true"
   netlify-honeypot="bot-field"
-  action={thankYou}
+  action="/thank-you.html"
   className="mt-6 space-y-4"
 >
   <input type="hidden" name="form-name" value="contact" />
