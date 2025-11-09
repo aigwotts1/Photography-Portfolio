@@ -120,20 +120,21 @@ function encode(data) {
     <div className="min-h-screen bg-gray-900 text-gray-100 antialiased">
       {/* NAV */}
       <header className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <div className="font-serif text-2xl tracking-tight">Abhinav Vashishth ~</div>
-          <div className="text-sm text-gray-400">Cinematographer</div>
-        </div>
-        <nav className="hidden md:flex gap-6 text-sm text-gray-300">
-          <a href="#work">Work</a>
-          <a href="#brands">Brands</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <div className="md:hidden">
-          <button aria-label="open menu" className="p-2 bg-gray-800 rounded">Menu</button>
-        </div>
-      </header>
+  {/* Left Section */}
+  <div className="flex items-center gap-4">
+    <div className="font-serif text-2xl tracking-tight">Abhinav Vashishth ~</div>
+    <div className="text-sm text-gray-400">Cinematographer</div>
+  </div>
+
+  {/* Desktop Navigation (Hidden on Mobile) */}
+  <nav className="hidden md:flex gap-6 text-sm text-gray-300">
+    <a href="#work">Work</a>
+    <a href="#brands">Brands</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
 
       {/* HERO section in component/hero.jsx */}
 <Hero
