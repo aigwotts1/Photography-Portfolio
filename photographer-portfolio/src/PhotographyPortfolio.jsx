@@ -85,22 +85,16 @@ export default function PhotographerPortfolio() {
  async function submitForm(e) {
   e.preventDefault();
 
-  if (!formState.name || !formState.email || !formState.type) {
-    alert("Please fill name, email and project type.");
-    return;
-  }
-
-  setSent(false);
+  const body = new URLSearchParams({
+    "form-name": "contact",
+    "bot-field": "",
+    name: formState.name,
+    email: formState.email,
+    type: formState.type,
+    message: formState.message,
+  });
 
   try {
-    const body = encode({
-      "form-name": "contact",
-      name: formState.name,
-      email: formState.email,
-      type: formState.type,
-      message: formState.message || "",
-    });
-
     const res = await fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -118,6 +112,7 @@ export default function PhotographerPortfolio() {
     alert("Failed to send. Check your connection or try again later.");
   }
 }
+
 
   // --- VideoCard Component ---
   function VideoCard({ work }) {
@@ -404,35 +399,55 @@ function encode(data) {
             <p className="mt-2 text-gray-400">Tell me about your project — commercial campaigns, editorial shoots, or a pre-wedding. I’ll respond within 48 hours.</p>
 
             <form
-  onSubmit={submitForm}
   name="contact"
+  method="POST"
   data-netlify="true"
   netlify-honeypot="bot-field"
+  action="/thank-you"
   className="mt-6 space-y-4"
 >
   <input type="hidden" name="form-name" value="contact" />
   <input type="hidden" name="bot-field" />
-              <input name="name" value={formState.name} onChange={handleChange} placeholder="Your name" className="w-full bg-gray-800 rounded px-4 py-3 text-sm" />
-              <input name="email" value={formState.email} onChange={handleChange} placeholder="Your email" className="w-full bg-gray-800 rounded px-4 py-3 text-sm" />
-              <select name="type" value={formState.type} onChange={handleChange} className="w-full bg-gray-800 rounded px-4 py-3 text-sm">
-                <option value="">Select project type</option>
-                <option>Commercial</option>
-                <option>Editorial / Fashion</option>
-                <option>Wedding</option>
-                <option>Drone / Aerial</option>
-                <option>Other</option>
-              </select>
-              <textarea name="message" value={formState.message} onChange={handleChange} placeholder="Tell me the brief (optional)" className="w-full bg-gray-800 rounded px-4 py-3 text-sm h-28" />
 
-              <div className="flex gap-3">
-                <button type="submit" className="bg-amber-500 text-gray-900 px-5 py-3 rounded font-semibold">Send request</button>
-              </div>
+  <input
+    name="name"
+    placeholder="Your name"
+    required
+    className="w-full bg-gray-800 rounded px-4 py-3 text-sm"
+  />
+  <input
+    name="email"
+    type="email"
+    placeholder="Your email"
+    required
+    className="w-full bg-gray-800 rounded px-4 py-3 text-sm"
+  />
+  <select
+    name="type"
+    required
+    className="w-full bg-gray-800 rounded px-4 py-3 text-sm"
+  >
+    <option value="">Select project type</option>
+    <option>Commercial</option>
+    <option>Editorial / Fashion</option>
+    <option>Wedding</option>
+    <option>Drone / Aerial</option>
+  </select>
+  <textarea
+    name="message"
+    placeholder="Tell me about your shoot"
+    className="w-full bg-gray-800 rounded px-4 py-3 text-sm h-28"
+  />
 
-              {sent && <div className="text-sm text-emerald-400">
-  Thanks! I got your message — I’ll reply within 48 hours.
-</div>}
+  <button
+    type="submit"
+    className="bg-amber-500 text-gray-900 px-5 py-3 rounded font-semibold"
+  >
+    Send request
+  </button>
+</form>
 
-            </form>
+
           </div>
 
           <div>
